@@ -1,0 +1,19 @@
+.step-view {
+    display: flex;
+    flex-direction: column;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+}
+
+.title {
+    display: flex;
+    flex-grow: 1;
+    margin: 20px;
+    align-items: center;
+}
+
+.body {
+    background-color: white;
+    padding: 20px;
+    flex-grow: 1;
+}
