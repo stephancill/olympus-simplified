@@ -4,6 +4,7 @@ import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import StepContainer from "./StepContainer"
 import TotalCostView from './TotalCostView';
+import EthSwap from './EthSwap';
 import "./App.css"
 require('dotenv').config({path: "./../.env"})
 
@@ -85,22 +86,7 @@ function App() {
         return userEthBalance > 0 ? <div>ETH balance: {ethers.utils.formatUnits(userEthBalance)}</div> : <button >Buy ETH</button> 
       }},
   
-      {title: "Buy OHM", done: false, content: function() {
-        return <div>
-          <div>Buy $OHM</div>
-          <div>
-            <span>You pay</span>
-            <input type="text" value={"ETH"}/>
-            <input type="number" step={Math.pow(10, -9)} value={"0.1"}/>
-          </div>
-          <div>
-            <span>You receive</span>
-            <input disabled={true} type="text" value={"OHM"}/>
-            <input disabled={true} type="number" value={"0.1"}/>
-          </div>
-          <button>Confirm Swap</button>
-        </div>
-      }},
+      {title: "Buy OHM", done: false, content: () => <EthSwap signer={signer}/>},
       {title: "Stake OHM", done: false, content: function() {
         return <div>Stake</div>
       }},
